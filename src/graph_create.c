@@ -55,13 +55,17 @@ node **create_graph(char *filename, int *num_rows, int *num_cols)
     char *line = NULL;
     size_t len = 0;
     int row = 0, col = 0, read = 0;
+
     check_fp(fp);
     get_maze_size(fp, filename, num_rows, num_cols);
     node **graph = (node **)malloc(*num_rows * sizeof(node *));
+
     while ((read = getline(&line, &len, fp2)) != -1) {
+
         read = check_line(line, read);
         read != *num_cols ? exit_no_rect(graph, line, num_cols, row) : (void)0;
         graph[row] = (node *)malloc(*num_cols * sizeof(node));
+
         for (col = 0; col < read; col++) {
             set_index(graph, line, row, col);
             line[col] != 'X' && line[col] != '*' ?
@@ -70,5 +74,6 @@ node **create_graph(char *filename, int *num_rows, int *num_cols)
         row++;
     }
     end_create(line, fp, fp2);
+
     return graph;
 }
