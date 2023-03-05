@@ -25,4 +25,4 @@ under 20 seconds without redirecting to a file.
 In the future, C Maze Solver will be updated with the A* algorithm for faster solving.
 
 ## License
-C Maze Solver is released under the MIT License.
+C Maze Solver is released under the [MIT License](./LICENSE).
